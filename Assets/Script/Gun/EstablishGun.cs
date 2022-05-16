@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class EstablishGun : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public GameObject itemObjectPrefab;
+    private void OnMouseDown()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if(ActivateGun.activateGun_singolton.is_activate_Gun == true)
+        {
+            GameObject itemObject = Instantiate(itemObjectPrefab, transform.position, Quaternion.identity);
+        }
     }
 }

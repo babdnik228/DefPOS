@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class ItemManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public static ItemManager item_manager_singolton;
+    public bool is_active_item;
+    private void Start()
     {
-        
+        item_manager_singolton = this;
     }
-
-    // Update is called once per frame
-    void Update()
+    public void ClickItem()
     {
-        
+        is_active_item = true;
     }
 }

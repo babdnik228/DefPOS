@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class Arrow : MonoBehaviour
 {
-	public float speed;
+	private float speed;
+	public int damage;
 
 	void Start()
 	{
-		Destroy(gameObject, 3);
+		speed = Random.Range(2, 6);
+		Destroy(gameObject, Random.Range(2,6));
 	}
 
 	void Update()
@@ -16,4 +18,12 @@ public class Arrow : MonoBehaviour
 		transform.position += transform.right * speed * Time.deltaTime;
 	}
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+		Enemy enemy = collision.GetComponent<Enemy>();
+		if(enemy != null)
+        {
+			enemy.TakeDamage(damage);
+        }
+    }
 }
